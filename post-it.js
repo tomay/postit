@@ -6,7 +6,7 @@ var Board = function( selector ) {
 
   function initialize() {
     $elem.on("click", function(e) {
-      new_post_it = new PostIt(e)
+      new PostIt(e);
     })
   };
 
@@ -14,7 +14,11 @@ var Board = function( selector ) {
 };
 
 var PostIt = function(e) {
-  $(".post-it:first").clone().removeClass('hidden').appendTo("#board").css("left", e.pageX).css("top", e.pageY);
+  $(".post-it:first").clone().removeClass('hidden').appendTo("#board").css("left", e.pageX).css("top", e.pageY),
+
+  $(".post-it").click(function(e){
+      e.stopPropagation();
+  })
 }
 
 
